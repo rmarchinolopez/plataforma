@@ -67,11 +67,11 @@ export default {
 .paginado {
     color: #fff;
 }
+
 .container-card {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
     padding: 10px;
     background-color: #529ae2;
 }
@@ -88,11 +88,12 @@ export default {
         flex-direction: column;
     }
 
-    .docente,
+    .docente {
+        flex: 1;
+    }
+
     .video {
-        flex: none;
-        width: 100%;
-        height: 50vh;
+        flex: 1;
     }
 }
 </style>

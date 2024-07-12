@@ -1,9 +1,9 @@
 <template>
     <div class="container-docente">
         <div
-            class="container-docente-flex"
             v-for="docente in docentes"
             :key="docente.id"
+            class="container-docente-flex"
         >
             <img :src="docente.imagen" class="imagen-docente" :alt="docente.nombre">
             <div class="container-info">
@@ -11,14 +11,16 @@
                 <p class="info info-yellow">Curso: <span class="info-span">{{ docente.curso }}</span></p>
                 <p class="info info-white">Hora: <span class="info-span">{{ docente.hora }}</span></p>
                 <p class="info info-white">Aula: <span class="info-span">{{ docente.aula }}</span></p>
-                <p class="info info-yellow">Estado: <span class="info-span">{{ docente.en_clase ? 'En clase' : 'No en clase'}}</span></p>
+                <p class="info info-yellow">Estado: <span class="info-span">{{ docente.en_clase ? 'En clase' : 'AUSENTE'}}</span></p>
+            </div>
+            <div class="container-id">
+                <p class="info">{{ docente.id }}</p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
     data() {
@@ -57,13 +59,14 @@ export default {
     padding: 10px;
     border-radius: 5px;
     background-color: #4CE15B;
+    position: relative;
 }
 
 .imagen-docente {
     width: 100px;
     height: 100px;
-    object-fit: cover;
-    border-radius: 50%; /* Hace que la imagen sea circular */
+    border-radius: 50%;
+    object-fit: contain;
     background: #e3e3e380;
 }
 
@@ -88,6 +91,12 @@ export default {
 
 .info-span {
     font-weight: bold;
+}
+
+.container-id {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 </style>
